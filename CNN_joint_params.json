@@ -1,0 +1,8 @@
+{
+    "lr_head": 0.0036538817408773277,
+    "lr_backbone": 8.125937245311066e-05,
+    "weight_decay": 8.415438887097181e-05,
+    "dropout_rate": 0.2,
+    "optimizer": "AdamW",
+    "scheduler": "CosineAnnealingLR"
+}

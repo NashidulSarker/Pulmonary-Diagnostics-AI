@@ -1,0 +1,10 @@
+numpy==2.4.3
+torch==2.11.0+xpu
+torchvision==0.26.0+xpu
+python-dotenv==1.2.2
+opencv-python-headless==4.13.0.92
+pillow==12.1.1
+gradio==6.14.0
+transformers==5.8.1
+scikit-learn==1.8.0
+optuna==4.8.0
