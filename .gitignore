@@ -1,0 +1,14 @@
+# Virtual environment
+.venv/
+__pycache__/
+*.pyc
+
+# Dataset
+Chest_Radiography_Database/
+
+# Local configuration
+.env
+.vscode/
+
+# Ignore outputs we don't want to publish (if any)
+*.log
