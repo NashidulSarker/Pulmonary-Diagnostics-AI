@@ -201,6 +201,7 @@ pulmonary-diagnostics-ai/
 ├── requirements.txt                # System dependencies
 ├── .env                            # Stores environment variables (DATA_DIR)
 ├── .gitattributes                  # Git attributes file configuration
+├── HF_README.md                    # Hugging Face Space configuration and deployment notes
 ├── CNN_joint.pth                   # Trained PyTorch Model weights (saved after training)
 └── CNN_joint_params.json           # JSON holding optimal parameters found by Optuna
 ```
@@ -237,7 +238,10 @@ pip install -r requirements.txt
 ## 7. Training the Model
 
 ### Dataset Requirements & Source
-The model was developed using two primary datasets combined:
+The unified dataset containing all four classes pre-arranged can be downloaded directly from Kaggle:
+👉 **[Kaggle: Chest X-Ray Dataset](https://www.kaggle.com/datasets/nashidulopul/chest-x-ray-dataset/data)**
+
+Alternatively, the model was originally developed by combining two primary databases:
 1. **Tuberculosis & Normal Dataset:** Available on [Kaggle](https://www.kaggle.com/datasets/tawsifurrahman/tuberculosis-tb-chest-xray-dataset).
 2. **COVID-19 & Viral Pneumonia Dataset:** Available on [Kaggle](https://www.kaggle.com/datasets/tawsifurrahman/covid19-radiography-database).
 
@@ -261,7 +265,25 @@ Chest_Radiography_Database/
 ### Run Model Training & Hyperparameter Search
 Specify your dataset directory in the `.env` file (`DATA_DIR=Chest_Radiography_Database`) or pass it via the command line.
 
-Run the training orchestration script:
+#### Programmatic Download & Training (via Python)
+If you do not want to download and extract the dataset manually, you can download it programmatically using the official `kagglehub` library. 
+
+1. Install `kagglehub`:
+   ```bash
+   pip install kagglehub
+   ```
+
+2. Download and run training using the downloaded path:
+   ```bash
+   python -c "import kagglehub; print(kagglehub.dataset_download('nashidulopul/chest-x-ray-dataset'))"
+   ```
+   Take the path returned by the command above (e.g., `C:\Users\<User>\.cache\kagglehub\datasets\...`) and pass it to `main.py`:
+   ```bash
+   python main.py --data_dir "C:\Users\<User>\.cache\kagglehub\datasets\nashidulopul\chest-x-ray-dataset\versions\<version_num>"
+   ```
+
+#### Manual Dataset Path
+If you downloaded the dataset manually and extracted it locally, run the training orchestration script with your local folder path:
 ```bash
 python main.py --data_dir Chest_Radiography_Database
 ```
