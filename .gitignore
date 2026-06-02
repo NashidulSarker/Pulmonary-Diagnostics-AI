@@ -7,8 +7,11 @@ __pycache__/
 Chest_Radiography_Database/
 
 # Local configuration
-.env
 .vscode/
 
 # Ignore outputs we don't want to publish (if any)
 *.log
+
+evalualtion_visualizer.py
+HF_README.md
+
