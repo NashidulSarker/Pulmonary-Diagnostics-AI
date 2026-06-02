@@ -135,7 +135,7 @@ The system utilizes a custom transfer learning strategy on top of **DenseNet-121
 ```mermaid
 flowchart TD
     %% Training Flow
-    subgraph Training Pipeline (main.py)
+    subgraph train_pipeline ["Training Pipeline (main.py)"]
         A[Raw Chest X-Ray Dataset] --> B[Filter for Allowed Classes]
         B --> C[Stratified Split: 85% Dev / 15% Hold-out]
         C --> D[Optuna HPO: 20 Trials]
@@ -146,7 +146,7 @@ flowchart TD
     end
 
     %% Inference Flow
-    subgraph Inference Pipeline (gradio_app.py)
+    subgraph infer_pipeline ["Inference Pipeline (gradio_app.py)"]
         I[User Uploads Image] --> J{CLIP Validation}
         J -->|Confidence <= 70%| K[Abort & Show Warning Banner]
         J -->|Confidence > 70%| L[Apply CLAHE Enhancement]
@@ -158,7 +158,7 @@ flowchart TD
     end
     
     %% Evaluation Flow
-    subgraph Evaluation & Visuals (evaluation_visualizer.py)
+    subgraph eval_visuals ["Evaluation & Visuals (evaluation_visualizer.py)"]
         H --> R[Load Model & Hold-out Set]
         R --> S[Generate Predictions on Unseen Data]
         S --> T[Export Plots & Text Reports]
