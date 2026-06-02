@@ -201,7 +201,6 @@ pulmonary-diagnostics-ai/
 ├── requirements.txt                # System dependencies
 ├── .env                            # Stores environment variables (DATA_DIR)
 ├── .gitattributes                  # Git attributes file configuration
-├── HF_README.md                    # Hugging Face Space configuration and deployment notes
 ├── CNN_joint.pth                   # Trained PyTorch Model weights (saved after training)
 └── CNN_joint_params.json           # JSON holding optimal parameters found by Optuna
 ```
