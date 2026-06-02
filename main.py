@@ -4,7 +4,6 @@ for multi-class chest X-ray classification (Normal, COVID-19, Tuberculosis, Vira
 """
 
 from Models import CNN_model
-from Models import transformer_model
 import torch
 import argparse
 import os
