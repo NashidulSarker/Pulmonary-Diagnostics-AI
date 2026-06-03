@@ -123,7 +123,7 @@ def predict_image(image):
             from Models.CNN_model import model_structure as cnn_structure
             model = cnn_structure(device, dropout_rate, num_classes=4)
                 
-            state_dict = torch.load(weights_path, map_location=device)
+            state_dict = torch.load(weights_path, map_location=device, , weights_only=False)
             model.load_state_dict(state_dict)
             model.eval()
             _model_cache[cache_key] = model
