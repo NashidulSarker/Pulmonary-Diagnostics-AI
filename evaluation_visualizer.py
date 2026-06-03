@@ -64,7 +64,7 @@ def main():
 
     # Instantiate model using training parameters
     model = model_structure(device, dropout_rate=best_params["dropout_rate"], num_classes=4)
-    model.load_state_dict(torch.load(model_path, map_location=device))
+    model.load_state_dict(torch.load(model_path, map_location=device, weights_only=False))
     model.eval()
     print("[*] DenseNet-121 model successfully loaded.")
 
