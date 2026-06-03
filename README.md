@@ -215,6 +215,17 @@ git clone https://github.com/NashidulSarker/pulmonary-diagnostics-ai.git
 cd pulmonary-diagnostics-ai
 ```
 
+> [!IMPORTANT]
+> **Git LFS (Large File Storage) Requirement:**
+> The model weights (`CNN_joint.pth`) are stored using Git LFS. 
+> * **If cloning the repo:** Make sure you have [Git LFS](https://git-lfs.com/) installed on your system *before* cloning, or run `git lfs pull` after cloning.
+> * **If you downloaded the code as a ZIP archive:** GitHub does not package LFS files in ZIP downloads, leaving only a text pointer file. Running the visualizer or gradio app will result in a `_pickle.UnpicklingError: invalid load key, 'v'.` error.
+> 
+> To download the real `CNN_joint.pth` weights manually, run this Python one-liner in your terminal:
+> ```bash
+> python -c "import urllib.request; urllib.request.urlretrieve('https://huggingface.co/spaces/NashidulSarker/pulmonary-diagnostics-ai/resolve/main/CNN_joint.pth', 'CNN_joint.pth')"
+> ```
+
 ### Create & Activate Virtual Environment
 ```bash
 # Create a virtual environment
